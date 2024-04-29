@@ -1,12 +1,15 @@
 window.onload = function () {
   
-    let seconds = 00; 
-    let tens = 00; 
-    let appendTens = document.getElementById("tens")
-    let appendSeconds = document.getElementById("seconds")
+    let seconds = 0; 
+    let minutes = 0; 
+    
+    let minutesElem = document.getElementById("minutes")
+    let secondsElem = document.getElementById("seconds")
+    
     let buttonStart = document.getElementById('button__start');
     let buttonStop = document.getElementById('button__stop');
     let buttonReset = document.getElementById('button__reset');
+    
     let Interval ;
   
     buttonStart.onclick = function() {
@@ -21,35 +24,33 @@ window.onload = function () {
   
     buttonReset.onclick = function() {
         clearInterval(Interval);
-        tens = "00";
-        seconds = "00";
-        appendTens.innerHTML = tens;
-        appendSeconds.innerHTML = seconds;
+        minutes = pad(0, 2);
+        seconds = pad(0, 2);
+        minutesElem.innerHTML = minutes;
+        secondsElem.innerHTML = seconds;
     };
+
+    function pad(num, size) {
+        num = num.toString();
+        while (num.length < size) {
+            num = "0" + num;
+        }    
+        return num;
+    }
     
-     
     
     function startTimer () {
-      tens++; 
-      
-      if(tens <= 9){
-        appendTens.innerHTML = "0" + tens;
-      };
-      
-      if (tens > 9){
-        appendTens.innerHTML = tens; 
-      };
-      
-      if (tens > 99) {
-        console.log("seconds");
-        seconds++;
-        appendSeconds.innerHTML = "0" + seconds;
-        tens = 0;
-        appendTens.innerHTML = "0" + 0;
-      };
-      
-      if (seconds > 9){
-        appendSeconds.innerHTML = seconds;
-      };
+        seconds++; 
+        
+        if (seconds >= 60) {
+            seconds = 0
+            minutes += 1
+        }
+
+        secondsString = pad(seconds, 2)
+        minutesString = pad(minutes, 2)
+
+        secondsElem.innerHTML = secondsString
+        minutesElem.innerHTML = minutesString
     };
 }
