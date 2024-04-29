@@ -11,7 +11,10 @@ window.onload = function () {
     let buttonReset = document.getElementById('button__reset');
     
     let Interval ;
-  
+    
+    const numLen = 2;
+    const numFill = '0';
+
     buttonStart.onclick = function() {
         clearInterval(Interval);
         Interval = setInterval(startTimer, 10);
@@ -24,20 +27,11 @@ window.onload = function () {
   
     buttonReset.onclick = function() {
         clearInterval(Interval);
-        minutes = pad(0, 2);
-        seconds = pad(0, 2);
+        seconds = seconds.toString().padStart(numLen, numFill);
+        minutes = minutes.toString().padStart(numLen, numFill);
         minutesElem.innerHTML = minutes;
         secondsElem.innerHTML = seconds;
     };
-
-    function pad(num, size) {
-        num = num.toString();
-        while (num.length < size) {
-            num = "0" + num;
-        }    
-        return num;
-    }
-    
     
     function startTimer () {
         seconds++; 
@@ -47,8 +41,8 @@ window.onload = function () {
             minutes += 1
         }
 
-        secondsString = pad(seconds, 2)
-        minutesString = pad(minutes, 2)
+        secondsString = seconds.toString().padStart(numLen, numFill)
+        minutesString = minutes.toString().padStart(numLen, numFill)
 
         secondsElem.innerHTML = secondsString
         minutesElem.innerHTML = minutesString
