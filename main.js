@@ -27,8 +27,8 @@ window.onload = function () {
   
     buttonReset.onclick = function() {
         clearInterval(Interval);
-        seconds = seconds.toString().padStart(numLen, numFill);
-        minutes = minutes.toString().padStart(numLen, numFill);
+        seconds = String(0).padStart(numLen, numFill);
+        minutes = String(0).padStart(numLen, numFill);
         minutesElem.innerHTML = minutes;
         secondsElem.innerHTML = seconds;
     };
