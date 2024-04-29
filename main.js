@@ -3,17 +3,17 @@ window.onload = function () {
     let seconds = 0; 
     let minutes = 0; 
     
-    let minutesElem = document.getElementById("minutes")
-    let secondsElem = document.getElementById("seconds")
+    let minutesElem = document.getElementById("minutes");
+    let secondsElem = document.getElementById("seconds");
     
     let buttonStart = document.getElementById('button__start');
     let buttonStop = document.getElementById('button__stop');
     let buttonReset = document.getElementById('button__reset');
     
-    let Interval ;
+    let Interval;
     
     const numLen = 2;
-    const numFill = '0';
+    const numFill = 0;
 
     buttonStart.onclick = function() {
         clearInterval(Interval);
@@ -37,14 +37,14 @@ window.onload = function () {
         seconds++; 
         
         if (seconds >= 60) {
-            seconds = 0
-            minutes += 1
+            seconds = 0;
+            minutes += 1;
         }
 
-        secondsString = seconds.toString().padStart(numLen, numFill)
-        minutesString = minutes.toString().padStart(numLen, numFill)
+        secondsString = seconds.toString().padStart(numLen, numFill);
+        minutesString = minutes.toString().padStart(numLen, numFill);
 
-        secondsElem.innerHTML = secondsString
-        minutesElem.innerHTML = minutesString
+        secondsElem.innerHTML = secondsString;
+        minutesElem.innerHTML = minutesString;
     };
 }
