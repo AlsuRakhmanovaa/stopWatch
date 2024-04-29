@@ -3,8 +3,8 @@ window.onload = function () {
     let seconds = 0; 
     let minutes = 0; 
     
-    let minutesElem = document.getElementById("minutes");
-    let secondsElem = document.getElementById("seconds");
+    let minutesElem = document.getElementById('minutes');
+    let secondsElem = document.getElementById('seconds');
     
     let buttonStart = document.getElementById('button__start');
     let buttonStop = document.getElementById('button__stop');
@@ -13,7 +13,7 @@ window.onload = function () {
     let Interval;
     
     const numLen = 2;
-    const numFill = 0;
+    const numFill = '0';
 
     buttonStart.onclick = function() {
         clearInterval(Interval);
@@ -27,10 +27,14 @@ window.onload = function () {
   
     buttonReset.onclick = function() {
         clearInterval(Interval);
-        seconds = String(0).padStart(numLen, numFill);
-        minutes = String(0).padStart(numLen, numFill);
-        minutesElem.innerHTML = minutes;
-        secondsElem.innerHTML = seconds;
+        seconds = 0;
+        minutes = 0;
+        
+        secondsString = seconds.toString().padStart(numLen, numFill);
+        minutesString = minutes.toString().padStart(numLen, numFill);
+
+        minutesElem.innerHTML = minutesString;
+        secondsElem.innerHTML = secondsString;
     };
     
     function startTimer () {
