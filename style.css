@@ -12,7 +12,6 @@ body {
 
 .main__title {
     font-size: 50px;
-    font-weight: 700;
 }
 
 .timing {
@@ -20,7 +19,8 @@ body {
     font-weight: 600;
 }
 
-.button__start {
+.button__start,
+.button__reset {
     color: #192220;
     background-color: #0bf9eb;
     border: none;
@@ -51,7 +51,7 @@ body {
     border-radius: 20px;
     font-size: 20px;
     padding: 18px 10px;
-    width:180px;
+    width: 180px;
     margin: 10px;   
     margin-right: 5px;
     margin-left: 0;
@@ -69,19 +69,8 @@ body {
     border: 1px solid #fff;
 } 
 
-
 .button__reset {
-    color: #192220;
-    background-color: #0bf9eb;
-    border: none;
-    border-radius: 20px;
-    font-size: 20px;
-    padding: 18px 10px;
-    width:180px;
-    margin: 10px;   
-    margin-left: 0;
-    cursor: pointer;
-    transition: all 0.3s;
+    margin-right: 5px;
 }
 
 .button__reset:hover {
