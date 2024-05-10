@@ -1,3 +1,3 @@
-Simple Timer
+Simple Stopwatch
 
 *pet-project.*
